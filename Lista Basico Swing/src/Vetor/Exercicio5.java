@@ -9,7 +9,7 @@ public class Exercicio5 {
 		Integer menor = Integer.MAX_VALUE;
 		Integer[] vetor = new Integer[10];
 		for (int i = 0; i < vetor.length; i++) {
-			vetor[i] = Integer.valueOf(JOptionPane.showInputDialog(null, "Digite um valor: "));
+			vetor[i] = Integer.valueOf(JOptionPane.showInputDialog("Digite um valor: "));
 			if(vetor[i] > maior) {
 				maior = vetor[i];
 			}
