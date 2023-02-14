@@ -18,4 +18,8 @@ public class FuncionarioDAO {
 	public FuncionarioDAO() {
 		listaFuncionarios = new ArrayList<>();
 	}
+	
+	public static FuncionarioDAO getInstance() {
+		return null;
+	}
 }

@@ -11,7 +11,8 @@ public class Exercicio6 {
 			lista.add(JOptionPane.showInputDialog("Digite um valor para a lista: "));
 		}
 		for (int i = 0; i < lista.size(); i++) {
-			JOptionPane.showMessageDialog(null, "Valor " + (i+1) + ": " + lista + "\n");
+			JOptionPane.showMessageDialog(null, "Valor " + (i+1) + ": " + lista.get(i) + "\n");
 		}
+		JOptionPane.showMessageDialog(null, "Valor: " + lista);
 	}
 }
