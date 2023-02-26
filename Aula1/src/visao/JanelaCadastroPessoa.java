@@ -24,7 +24,6 @@ public class JanelaCadastroPessoa extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtCPF;
 	private JTextField txtNome;
-	private JButton btnLimparCampos;
 
 	/**
 	 * Launch the application.
@@ -48,7 +47,7 @@ public class JanelaCadastroPessoa extends JFrame {
 	 */
 	public JanelaCadastroPessoa() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 750, 572);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 128, 128));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -85,78 +84,10 @@ public class JanelaCadastroPessoa extends JFrame {
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String nome = txtNome.getText();
-				String cpf = txtCPF.getText();
 				
-				if(nome.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Nenhum nome preenchido");
-				}
-				if(cpf.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Nenhum CPF preenchido");
-				}
-				
-				Funcionario func = new Funcionario();
-				func.setNome(nome);
-				func.setCpf(Long.valueOf(cpf));
-				
-				FuncionarioDAO bdPessoa = FuncionarioDAO.getInstance();
-				bdPessoa.inserir(func);
 			}
 		});
-
-
-		btnSalvar.setForeground(new Color(0, 0, 255));
-		btnSalvar.setBackground(new Color(255, 128, 0));
-		btnSalvar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		btnSalvar.setBounds(102, 103, 136, 23);
+		btnSalvar.setBounds(28, 118, 210, 23);
 		contentPane.add(btnSalvar);
-		
-		btnLimparCampos = new JButton("Limpar");
-		btnLimparCampos.setForeground(new Color(128, 128, 255));
-		btnLimparCampos.setBackground(new Color(255, 128, 192));
-		btnLimparCampos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				txtNome.setText("");
-				txtCPF.setText("");
-				
-			}
-		});
-		btnLimparCampos.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnLimparCampos.setBounds(129, 137, 89, 23);
-		contentPane.add(btnLimparCampos);
-		
-		JPanel panelInfo = new JPanel();
-		panelInfo.setBounds(248, 28, 176, 98);
-		contentPane.add(panelInfo);
-		panelInfo.setLayout(null);
-		
-		JLabel lblNomePanel = new JLabel("Nome");
-		lblNomePanel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNomePanel.setBounds(27, 11, 127, 36);
-		panelInfo.add(lblNomePanel);
-		
-		JLabel lblCPFPanel = new JLabel("CPF");
-		lblCPFPanel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblCPFPanel.setBounds(27, 58, 127, 29);
-		panelInfo.add(lblCPFPanel);
-		
-		JButton btnMostrarDados = new JButton("Mostrar Dados");
-		btnMostrarDados.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnMostrarDados.setForeground(new Color(128, 128, 255));
-		btnMostrarDados.setBackground(new Color(255, 128, 192));
-		btnMostrarDados.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelInfo.setVisible(true);
-				String nome = txtNome.getText();
-				String cpf = txtCPF.getText();
-				lblCPFPanel.setText(cpf);
-				lblNomePanel.setText(nome);
-				
-			}
-		});
-		btnMostrarDados.setBounds(271, 137, 130, 23);
-		contentPane.add(btnMostrarDados);
-		
-		panelInfo.setVisible(false);
 	}
 }

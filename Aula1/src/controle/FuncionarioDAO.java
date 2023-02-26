@@ -3,23 +3,42 @@ package controle;
 import java.util.ArrayList;
 
 import modelo.Funcionario;
+import modelo.IFuncionarioDAO;
 
-public class FuncionarioDAO {
-	private static ArrayList<Funcionario> listaFuncionarios;
+
+
+public class FuncionarioDAO implements IFuncionarioDAO {
+	private static FuncionarioDAO instanciaFuncionario;
+	private static ArrayList<Funcionario> tabelaFuncionario;
 	
-	public boolean inserir(Funcionario func) {
-		listaFuncionarios.add(func);
-		return false;
+	private FuncionarioDAO() {
+	}
+	
+	public static FuncionarioDAO getInstanciaFuncionario() {
+
+		if (instanciaFuncionario == null) {
+			instanciaFuncionario = new FuncionarioDAO();
+			tabelaFuncionario = new ArrayList<>();
+		}
+
+		return instanciaFuncionario;
+	}
+
+	@Override
+	public boolean criarFuncionario(Funcionario f) {
+		if (f != null) {
+			tabelaFuncionario.add(f);
+			return true;
+		}
 		
+		return false;
 	}
-	public ArrayList<Funcionario> listar(){
-		return listaFuncionarios;
-	}
-	public FuncionarioDAO() {
-		listaFuncionarios = new ArrayList<>();
+
+	@Override
+	public ArrayList<Funcionario> listarFuncionario() {
+		// TODO Auto-generated method stub
+		return tabelaFuncionario;
 	}
 	
-	public static FuncionarioDAO getInstance() {
-		return null;
-	}
+	
 }
