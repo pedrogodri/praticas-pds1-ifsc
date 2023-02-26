@@ -16,11 +16,16 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-import javax.swing.JToggleButton;
+
 
 public class JanelaCadastroPessoa extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtCPF;
 	private JTextField txtNome;
@@ -81,13 +86,50 @@ public class JanelaCadastroPessoa extends JFrame {
 		lblNewLabel.setBounds(28, 67, 32, 27);
 		contentPane.add(lblNewLabel);
 		
+		FuncionarioDAO dbFuncionario = FuncionarioDAO.getInstanciaFuncionario();
+		Funcionario funcionario = new Funcionario();
+		
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String nome = txtNome.getText();
+				String cpf = txtCPF.getText();
 				
+				if(nome.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Nenhum nome preenchido!");
+				}
+				else {
+					funcionario.setNome(nome);
+				}
+				
+				if(cpf.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Nenhum cpf preenchido!");
+				}
+				else {
+					funcionario.setCpf(cpf);
+				}
+				
+				dbFuncionario.criarFuncionario(funcionario);
+				System.out.println("Salvou");
 			}
 		});
 		btnSalvar.setBounds(28, 118, 210, 23);
 		contentPane.add(btnSalvar);
+		
+		ArrayList<Funcionario> listaFuncionario = dbFuncionario.listarFuncionario();
+		
+		JButton btnListarFuncioanrio = new JButton("Listar Funcionarios");
+		btnListarFuncioanrio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for (int i = 0; i < listaFuncionario.size(); i++) {
+					System.out.println(funcionario.getNome());
+
+				}
+			}
+		});
+		btnListarFuncioanrio.setBounds(28, 169, 210, 23);
+		contentPane.add(btnListarFuncioanrio);
+		
+		
 	}
 }
