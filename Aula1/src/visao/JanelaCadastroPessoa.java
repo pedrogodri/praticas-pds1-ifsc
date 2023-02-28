@@ -17,6 +17,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.awt.event.ActionEvent;
 
 
@@ -87,11 +88,14 @@ public class JanelaCadastroPessoa extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		FuncionarioDAO dbFuncionario = FuncionarioDAO.getInstanciaFuncionario();
-		Funcionario funcionario = new Funcionario();
 		
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
+				Funcionario funcionario = new Funcionario();
+				
 				String nome = txtNome.getText();
 				String cpf = txtCPF.getText();
 				
@@ -121,9 +125,8 @@ public class JanelaCadastroPessoa extends JFrame {
 		JButton btnListarFuncioanrio = new JButton("Listar Funcionarios");
 		btnListarFuncioanrio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for (int i = 0; i < listaFuncionario.size(); i++) {
-					System.out.println(funcionario.getNome());
-
+				for (Funcionario funcionario : listaFuncionario) {
+					System.out.println("Nome: " + funcionario.getNome() + "\nCPF: " + funcionario.getCpf() );
 				}
 			}
 		});
