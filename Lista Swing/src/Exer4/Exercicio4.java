@@ -41,6 +41,9 @@ public class Exercicio4 extends JFrame {
 	 * Create the frame.
 	 */
 	public Exercicio4() {
+		
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -87,55 +90,58 @@ public class Exercicio4 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				String numeroTxt1 = txtNumero1.getText();
-				String numeroTxt2 = txtNumero1.getText();
+				String numeroTxt2 = txtNumero2.getText();
 				
 				Double numero1 = Double.parseDouble(numeroTxt1);
 				Double numero2 = Double.parseDouble(numeroTxt2);
 				
-				Double soma = numero1 + numero2;
-				System.out.println(soma);
+				Double resultado = numero1 + numero2;
+				System.out.println(resultado);
 ;				
 			}
 		});
 		
 		btnSubtracao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				String numeroTxt1 = txtNumero1.getText();
-				String numeroTxt2 = txtNumero1.getText();
+				String numeroTxt2 = txtNumero2.getText();
 				
 				Double numero1 = Double.parseDouble(numeroTxt1);
 				Double numero2 = Double.parseDouble(numeroTxt2);
 				
-				Double soma = numero1 - numero2;
-				System.out.println(soma);
+				Double resultado = numero1 - numero2;
+				System.out.println(resultado);
 ;				
 			}
 		});
 		
 		btnDivisao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				String numeroTxt1 = txtNumero1.getText();
-				String numeroTxt2 = txtNumero1.getText();
+				String numeroTxt2 = txtNumero2.getText();
 				
 				Double numero1 = Double.parseDouble(numeroTxt1);
 				Double numero2 = Double.parseDouble(numeroTxt2);
 				
-				Double soma = numero1 / numero2;
-				System.out.println(soma);
+				Double resultado = numero1 / numero2;
+				System.out.println(resultado);
 ;				
 			}
 		});
 		
 		btnMultiplicacao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				String numeroTxt1 = txtNumero1.getText();
-				String numeroTxt2 = txtNumero1.getText();
+				String numeroTxt2 = txtNumero2.getText();
 				
 				Double numero1 = Double.parseDouble(numeroTxt1);
 				Double numero2 = Double.parseDouble(numeroTxt2);
 				
-				Double soma = numero1 * numero2;
-				System.out.println(soma);
+				Double resultado = numero1 * numero2;
+				System.out.println(resultado);
 ;				
 			}
 		});
