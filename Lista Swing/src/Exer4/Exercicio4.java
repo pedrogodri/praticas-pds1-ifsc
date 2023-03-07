@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -96,7 +97,7 @@ public class Exercicio4 extends JFrame {
 				Double numero2 = Double.parseDouble(numeroTxt2);
 				
 				Double resultado = numero1 + numero2;
-				System.out.println(resultado);
+				JOptionPane.showMessageDialog(null, "Soma = " + resultado);
 ;				
 			}
 		});
@@ -111,8 +112,7 @@ public class Exercicio4 extends JFrame {
 				Double numero2 = Double.parseDouble(numeroTxt2);
 				
 				Double resultado = numero1 - numero2;
-				System.out.println(resultado);
-;				
+				JOptionPane.showMessageDialog(null, "Subtração = " + resultado);			
 			}
 		});
 		
@@ -126,7 +126,7 @@ public class Exercicio4 extends JFrame {
 				Double numero2 = Double.parseDouble(numeroTxt2);
 				
 				Double resultado = numero1 / numero2;
-				System.out.println(resultado);
+				JOptionPane.showMessageDialog(null, "Divisão = " + resultado);
 ;				
 			}
 		});
@@ -141,7 +141,7 @@ public class Exercicio4 extends JFrame {
 				Double numero2 = Double.parseDouble(numeroTxt2);
 				
 				Double resultado = numero1 * numero2;
-				System.out.println(resultado);
+				JOptionPane.showMessageDialog(null, "Multiplicação = " + resultado);
 ;				
 			}
 		});
